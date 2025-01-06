@@ -8,4 +8,4 @@
 * 2 adc channels of 0-10v input converting to 0-100%
 * 2 open colector outputs
 * 24vcc supply voltage
-![menu](https://github.com/janos-raul/lt_counter/blob/main/img/IMG_20250104_224815889_BURST021.PNG)
+![menu](https://github.com/janos-raul/lt_counter/blob/main/img/IMG_20250104_224815889.PNG)
