@@ -1,4 +1,6 @@
 * -some pictures of finished Lt counter.
+* esp32:
+![esp32](https://github.com/janos-raul/lt_counter/blob/main/img/IMG_20241217_194733204_HDR.PNG)
 * mainboard:
 ![mainboard](https://github.com/janos-raul/lt_counter/blob/main/img/IMG_20241219_184132888_HDR.PNG)
 ![mainboard](https://github.com/janos-raul/lt_counter/blob/main/img/IMG_20241219_183900335_HDR.PNG)
