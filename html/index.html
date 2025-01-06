@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Electric-Group production monitor</title>
+	<link rel="icon" href="/html/egricon.ico" type="image/x-icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    display: inline-block;
+    text-align: center;
+}
+h1 {
+    font-size: 1.8rem;
+    color: white;
+}
+h3 {
+    font-size: 1.0rem;
+    color: white;
+}
+h2 {
+    font-size: 1.0rem;
+}
+.abs-imgr { position: absolute; top: 50px; right: 40px; width: 200px; }
+.abs-imgl { position: absolute; top: 50px; left: 40px; width: 200px; }
+.topnav {
+    overflow: hidden;
+    background-color: #0A1128;
+}
+.janos {
+    font-size: 0.8rem;
+    width: 100%;
+    overflow: hidden;
+    background-color: white;
+    text-align: right;
+}
+body {
+    margin: 0;
+}
+.info-bar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+}
+.content {
+    padding: 50px;
+}
+.card-grid {
+    max-width: 800px;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.card {
+    background-color: white;
+    box-shadow: 2px 2px 12px 1px rgba(140,140,140,.5);
+}
+.card-title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #034078
+}
+.reading {
+    font-size: 1.2rem;
+    color: #1282A2;
+}
+.readingT {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #1B1919;
+}
+/* Resize and position images on mobile devices */ 
+@media (max-width: 768px) { 
+.abs-imgr { max-width: 25%; height: auto; top: 210px; right: 10px; } 
+.abs-imgl { max-width: 25%; height: auto; top: 210px; left: 10px; } 
+}
+</style>
+    </head>
+    <body>
+<!-- Floating Image --> 
+<a href="https://www.electricgroup.ro">
+<img src="/html/Sigla.jpg" alt="Sigla EGR" class="abs-imgr">
+</a>
+<a href="/dir?dir=/log">
+<img src="/html/Sigla.jpg" alt="Sigla EGR" class="abs-imgl">
+</a>
+        <div class="topnav">
+            <h1>ELECTRIC-GROUP PRODUCTION MONITOR</h1>
+        </div>
+        <div class="topnav">
+            <h3>PRODUCTION ENVIORMENT :</h3>
+        </div>
+        <div class="topnav">
+            <h3>Temperature: <span id="send_temp"></span> Humidity: <span id="send_hum"></span></h3>
+        </div>
+        <div class="info-bar">
+            <span id='clock'></span><br> Connected clients: <span id="con_clients"></span> / 7
+        </div>
+        <div class="content">
+            <div class="card-grid">
+                <div class="card">
+                    <p class="card-title">Production Line 60</p>
+                    <p class="readingT">Cable Type</p>
+                    <p class="reading"><span id="l1_type"></span></p>
+                    <p class="readingT">Cable Color</p>
+                    <p class="reading"><span id="l1_typec"></span></p>
+                    <p class="readingT">Line Counter m</p>
+                    <p class="reading"><span id="l1_counter"></span></p>
+                    <p class="readingT">Line Speed m/M</p>
+                    <p class="reading"><span id="l1_speed"></span></p>
+                    <p class="readingT">Diameter mm</p>
+                    <p class="reading"><span id="l1_dia"></span></p>
+                    <p class="readingT">Extruder 60 Load %A</p>
+                    <p class="reading"><span id="l1_load60"></span></p>
+                    <p class="readingT">Extruder 32 Load %A</p>
+                    <p class="reading"><span id="l1_load32"></span></p>
+                 </div>
+                <div class="card">
+                    <p class="card-title">Production Line 45</p>
+                    <p class="readingT">Cable Type</p>
+                    <p class="reading"><span id="l2_type"></span></p>
+                    <p class="readingT">Cable Color</p>
+                    <p class="reading"><span id="l2_typec"></span></p>
+                    <p class="readingT">Line Counter m</p>
+                    <p class="reading"><span id="l2_counter"></span></p>
+                    <p class="readingT">Line Speed m/M</p>
+                    <p class="reading"><span id="l2_speed"></span></p>
+                    <p class="readingT">Diameter mm</p>
+                    <p class="reading"><span id="l2_dia"></span></p>
+                    <p class="readingT">Extruder 45 Load %A</p>
+                    <p class="reading"><span id="l2_load45"></span></p>
+                    <p class="readingT">Extruder 32 Load %A</p>
+                    <p class="reading"><span id="l2_load32"></span></p>
+                 </div>
+                <div class="card">
+                    <p class="card-title">Production Line 80</p>
+                    <p class="readingT">Cable Type</p>
+                    <p class="reading"><span id="l3_type"></span></p>
+                    <p class="readingT">Cable Color</p>
+                    <p class="reading"><span id="l3_typec"></span></p>
+                    <p class="readingT">Line Counter m</p>
+                    <p class="reading"><span id="l3_counter"></span></p>
+                    <p class="readingT">Line Speed m/M</p>
+                    <p class="reading"><span id="l3_speed"></span></p>
+                    <p class="readingT">Diameter mm</p>
+                    <p class="reading"><span id="l3_dia"></span></p>
+                    <p class="readingT">Extruder 80 Load %A</p>
+                    <p class="reading"><span id="l3_load80"></span></p>
+                    <p class="readingT">Extruder 40 Load %A</p>
+                    <p class="reading"><span id="l3_load40"></span></p>
+                 </div>
+             </div>
+                <div class="janos">
+                <a href="mailto:janos.szabo@electricgroup.ro">janos.szabo@electricgroup.ro</a>
+                </div>
+                <div class="janos">
+                <a href="https://sites.google.com/view/led-text-displays/home">powered by: Led Displays</a>
+                </div>
+         </div>
+  </body>
+<script>
+var gateway = `ws://${window.location.hostname}/ws`;
+var websocket;
+
+// Init web socket when the page loads
+window.addEventListener('load', onload);
+
+    // Call the displayDateTime function to update the display immediately
+    displayDateTime();
+
+    // Update the display every second using setInterval
+    setInterval(displayDateTime, 1000);
+
+    // Set an interval to get readings every second 
+    setInterval(getReadings, 1010);
+
+function onload(event) {
+	initWebSocket();
+}
+function displayDateTime() {
+        const datetimeDisplayElement = document.getElementById('clock');
+
+        // Create a new Date object
+        const currentDateTime = new Date();
+
+        // Extract the date and time components hours, minutes, and seconds 
+	const hours = String(currentDateTime.getHours()).padStart(2, '0'); 
+	const minutes = String(currentDateTime.getMinutes()).padStart(2, '0'); 
+	const seconds = String(currentDateTime.getSeconds()).padStart(2, '0'); 
+
+	const time = `${hours}:${minutes}:${seconds}`;
+        const date = currentDateTime.toDateString();
+
+        // Display the date and time in the span element
+        datetimeDisplayElement.textContent = `Date: ${date} - Time: ${time}`;
+    }
+
+function initWebSocket() {
+    console.log('Trying to open a WebSocket connection…');
+    websocket = new WebSocket(gateway);
+    websocket.onopen = onOpen;
+    websocket.onclose = onClose;
+    websocket.onmessage = onMessage;
+}
+
+function getReadings() { 
+websocket.send("getReadings"); 
+}
+
+// When websocket is established, call the getReadings() function
+function onOpen(event) {
+    console.log('Connection opened');
+    getReadings();
+}
+
+function onClose(event) {
+    console.log('Connection closed');
+    setTimeout(initWebSocket, 2000);
+}
+
+// Function that receives the message from the ESP32 with the readings
+function onMessage(event) {
+    var data = event.data; 
+    if (data === "redirect") { 
+        window.location.href = '/html/client_error.html'; 
+    } else {
+        try {
+            var myObj = JSON.parse(data);
+            var keys = Object.keys(myObj);
+            for (var i = 0; i < keys.length; i++){
+                var key = keys[i];
+                document.getElementById(key).innerHTML = myObj[key];
+            }
+        } catch (e) {
+            console.error('Invalid JSON:', e);
+        }
+    }
+}
+
+        </script>
+</html>

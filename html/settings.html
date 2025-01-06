@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ESP32 Configurator</title>
+    <style>
+        .form-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .form-container button {
+            margin-right: 10px;
+        }
+
+        .reboot-container {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .reboot-container button {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Configure JDY-41 Radio Module</h1>
+    <form id="configForm">
+        <label for="channel">Radio Channel:</label>
+        <input type="number" id="channel" name="channel" min="0" max="127" required><br>
+        <small>Range: 0-127</small><br><br>
+        
+        <label for="txpower">Radio Tx Power:</label>
+        <input type="number" id="txpower" name="txpower" min="1" max="9" required><br>
+        <small>
+            1 = -25dB<br>
+            2 = -15dB<br>
+            3 = -5dB<br>
+            4 = 0dB<br>
+            5 = +3dB<br>
+            6 = +6dB<br>
+            7 = +9dB<br>
+            8 = +10dB<br>
+            9 = +12dB
+        </small><br><br>
+
+        <div class="form-container">
+            <button type="button" onclick="sendConfig()">Submit</button>
+            <div id="configStatus" style="color: green; font-weight: bold;"></div>
+        </div>
+
+        <p>After submitting, a power cycle of the device must be performed for settings to be effective!</p>
+
+        <div class="reboot-container">
+            <button type="button" onclick="rebootServer()">Reboot Server</button>
+            <div id="rebootStatus" style="color: blue; font-weight: bold;"></div>
+        </div>
+    </form>
+
+    <script>
+        var gateway = `ws://${window.location.hostname}/ws`;
+        var websocket;
+
+        window.addEventListener('load', initWebSocket);
+
+        function initWebSocket() {
+            console.log('Trying to open a WebSocket connection...');
+            websocket = new WebSocket(gateway);
+            websocket.onopen = onOpen;
+            websocket.onclose = onClose;
+            websocket.onmessage = onMessage;
+        }
+
+        function sendConfig() {
+            const channel = document.getElementById('channel').value;
+            const txpower = document.getElementById('txpower').value;
+            if (channel >= 0 && channel <= 127 && txpower >= 1 && txpower <= 9) {
+                websocket.send("config=" + channel + "," + txpower);
+                document.getElementById('configStatus').innerText = "Configuration sent successfully!";
+                document.getElementById('configStatus').style.color = "green";
+            } else {
+                document.getElementById('configStatus').innerText = "Invalid input values.";
+                document.getElementById('configStatus').style.color = "red";
+            }
+        }
+
+        function rebootServer() {
+            websocket.send("restart");
+            document.getElementById('rebootStatus').innerText = "Reboot command sent.";
+        }
+
+        function onOpen(event) {
+            websocket.send("get_jdy");
+            console.log('Connection opened');
+        }
+
+        function onClose(event) {
+            console.log('Connection closed');
+            setTimeout(initWebSocket, 2000);
+        }
+
+        function onMessage(event) {
+            console.log("Message from ESP32: " + event.data);
+
+            if (event.data === "+OK\r") {
+                document.getElementById('configStatus').innerText = event.data;
+                document.getElementById('configStatus').style.color = "green";
+                return;
+            }
+            
+            // Assume the received data is in the format "ch:value1 tx:value2"
+            const data = event.data;
+            const chValue = data.match(/ch:(\d+)/)[1];
+            const txValue = data.match(/tx:(\d+)/)[1];
+            
+            // Update the input fields with the received values
+            document.getElementById('channel').value = chValue;
+            document.getElementById('txpower').value = txValue;
+
+        }
+    </script>
+</body>
+</html>
