@@ -960,13 +960,13 @@ void handleLineData(unsigned long currentMillis) {
     ms_counter++;  // Increment by 1, assuming msDuration is 1 millisecond
 
     if (ms_counter == 200 && !sentLine1) {  // Do something at 200ms
-      sendData("*LINE1");
+      sendData("LINE1");
       sentLine1 = true;
     } else if (ms_counter == 500 && !sentLine2) {  // Do something at 500ms
-      sendData("*LINE2");
+      sendData("LINE2");
       sentLine2 = true;
     } else if (ms_counter == 800 && !sentLine3) {  // Do something at 800ms
-      sendData("*LINE3");
+      sendData("LINE3");
       sentLine3 = true;
     } else if (ms_counter >= 1000) {  // Reset the counter every second
       ms_counter = 0;
