@@ -29,12 +29,12 @@ ch0_adc:	.byte 2
 ch1_adc:	.byte 2
 
 oc1_val:	.byte 3
-oc1_bcd_val:.byte 3
+oc1_bcd_val:	.byte 3
 oc2_val:	.byte 3
-oc2_bcd_val:.byte 3
+oc2_bcd_val:	.byte 3
 
 m_set6:		.byte 1
-menu_index: .byte 1
+menu_index: 	.byte 1
 
 ppm24:		.byte 3
 ppm24_bcd:	.byte 3
@@ -42,19 +42,19 @@ dia_100:	.byte 1
 dia_llm:	.byte 2
 dia_hlm:	.byte 2
 dia_cmp:	.byte 2
-dia_cmp_bcd: .byte 6
+dia_cmp_bcd: 	.byte 6
 dia_val:	.byte 2
 
 enc_cnt:	.byte 3
 met_cnt:	.byte 3
 speed_cnt:	.byte 2
 scr_index:	.byte 1
-rx0_buffer: .byte 65
+rx0_buffer: 	.byte 65
 rx0_ptr:	.byte 2
-rx0_err_cnt:.byte 1
+rx0_err_cnt:	.byte 1
 rx0_len:	.byte 1
 rx0_crc8:	.byte 1
-tx0_buffer: .byte 65
+tx0_buffer: 	.byte 65
 tx0_ptr:	.byte 2
 ch0_sram:	.byte 3
 ch1_sram:	.byte 3
@@ -62,19 +62,19 @@ dia_sram:	.byte 6
 met_sram:	.byte 7
 time_sram:	.byte 9
 date_sram:	.byte 6
-speed_sram: .byte 4
-type_sram:  .byte 12 ;"MYUP-2x0.75",0x00
-type_index: .byte 1
-color_sram: .byte 8  ;"Y/GREEN",0x00
-color_index:.byte 1
-l3live_sram:.byte 7
+speed_sram: 	.byte 4
+type_sram:  	.byte 12 ;"MYUP-2x0.75",0x00
+type_index: 	.byte 1
+color_sram: 	.byte 8  ;"Y/GREEN",0x00
+color_index:	.byte 1
+l3live_sram:	.byte 7
 l3live_start_sram:	.byte 12
 l3live_stop_sram:	.byte 11
 ip_sram:	.byte 16
 temp_sram:	.byte 5
 hum_sram:	.byte 5
-jdy_channel: .byte 1
-jdy_txpower: .byte 1
+jdy_channel: 	.byte 1
+jdy_txpower: 	.byte 1
 
 .MACRO delayms20 
 	ldi temp,@0
@@ -346,6 +346,24 @@ ldi zh,high(table_l3live_stop*2)
 ldi zl,low(table_l3live_stop*2)
 call ld_sram
 
+ldi xh,high(temp_sram)
+ldi xl,low(temp_sram)
+ldi zh,high(table_temp*2)
+ldi zl,low(table_temp*2)
+call ld_sram
+
+ldi xh,high(hum_sram)
+ldi xl,low(hum_sram)
+ldi zh,high(table_hum*2)
+ldi zl,low(table_hum*2)
+call ld_sram
+
+ldi xh,high(ip_sram)
+ldi xl,low(ip_sram)
+ldi zh,high(table_ip*2)
+ldi zl,low(table_ip*2)
+call ld_sram
+
 call met_st
 call speed_st
 
@@ -356,6 +374,7 @@ sei							;enable global interupts
 pre_main_loop:
 
 call rx0_recv
+call tx0_send
 
 lds temp,flag_reg0
 sbrs temp,time_scrf
