@@ -1163,15 +1163,15 @@ breq data_crc8
 sbi portd,led_red
 ret
 data_crc8:
-ldi zl,low(rx0_buffer+5)
-ldi zh,high(rx0_buffer+5)
+ldi zl,low(rx0_buffer+4)
+ldi zh,high(rx0_buffer+4)
 ld temp,z
 cpi temp,'3'
 breq l3live
 ret
 l3live:
-ldi zl,low(rx0_buffer+7)
-ldi zh,high(rx0_buffer+7)
+ldi zl,low(rx0_buffer+6)
+ldi zh,high(rx0_buffer+6)
 ldi xl,low(date_sram)
 ldi xh,high(date_sram)
 ldi temp2,5
@@ -1183,8 +1183,8 @@ tst temp2
 brne date_sloop
 st x,temp2
 adiw z,1
-ldi zl,low(rx0_buffer+13)
-ldi zh,high(rx0_buffer+13)
+ldi zl,low(rx0_buffer+12)
+ldi zh,high(rx0_buffer+12)
 ldi xl,low(time_sram)
 ldi xh,high(time_sram)
 ldi temp2,8
@@ -1196,8 +1196,8 @@ tst temp2
 brne time_sloop
 st x,temp2
 adiw z,1
-ldi zl,low(rx0_buffer+22)
-ldi zh,high(rx0_buffer+22)
+ldi zl,low(rx0_buffer+21)
+ldi zh,high(rx0_buffer+21)
 ldi xl,low(ip_sram)
 ldi xh,high(ip_sram)
 ldi temp2,','
