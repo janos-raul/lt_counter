@@ -19,7 +19,7 @@
 .def	tbin1	=r21	; binary value byte 1
 .def	tbin2	=r22	; binary value byte 2 (MSB)
 
-.equ PAGESIZEB = PAGESIZE*2			;*LINE3,29/12,19:23:46,192.168.188.58,22.2,57.7,63
+.equ PAGESIZEB = PAGESIZE*2						;LINE3,29/12,19:23:46,192.168.188.58,22.2,57.7,63
 									;L3LIVE,CYYF 3X1.5,Grey,224,7970,1247,3461,8677,14
 .def crc8   =r16 
 .def data	=r17
