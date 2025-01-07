@@ -63,6 +63,12 @@ table_l3live_stop:
 .db "L3LIVESTOP",0x00
 table_dia_off:
 .db "       ",0x00
+table_temp:
+.db "00.0",0x00
+table_hum:
+.db "00.0",0x00
+table_ip:
+.db "*.*.*.*",0x00
 
 table_fy05:						;8
 .db "FY-0.5     ",0x00 ;0
