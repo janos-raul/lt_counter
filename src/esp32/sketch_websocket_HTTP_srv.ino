@@ -284,8 +284,9 @@ void handleWebSocketMessage(AsyncWebSocketClient* client, AwsFrameInfo* info, ui
       return;
     }
     if (strcmp(message, "restart") == 0) {
-      ws.textAll("redirect");
       delay(500);
+      ws.textAll("redirect");
+      delay(1000);
       ESP.restart();
       return;
     }
