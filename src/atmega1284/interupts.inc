@@ -365,14 +365,16 @@ jmp rx0_exit
 rx0_no_err:
 
 lds temp2,udr0
-cpi temp2,'*'
-brne rx_middle
+
+cpi temp2,0x0a
+brne not_0a
 ldi temp,low(rx0_buffer)
 sts rx0_ptr,temp
 ldi temp,high(rx0_buffer)
 sts rx0_ptr+1,temp
+jmp rx0_exit
+not_0a:
 
-rx_middle:
 lds zl,rx0_ptr
 lds zh,rx0_ptr+1
 st z+,temp2
