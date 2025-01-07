@@ -75,7 +75,7 @@ int led_state = LOW;
 bool timesynch_ntp = false;
 bool aht_flag = false;
 
-const int bufferSize = 128;
+const int bufferSize = 65;
 char buffer[bufferSize];
 int indexr = 0;
 bool newData = false;
@@ -687,8 +687,8 @@ void setup() {
   Serial.begin(115200);
   // Serial.flush();
   mySerial.setRxTimeout(1);
-  mySerial.setRxBufferSize(128);
-  mySerial.setTxBufferSize(128);
+  mySerial.setRxBufferSize(65);
+  mySerial.setTxBufferSize(65);
   mySerial.onReceive(mySerial2RX);
   mySerial.begin(38400, SERIAL_8N1, RXD2, TXD2);  // UART setup
                                                   // Serial.printf("CPU Freq = %i Mhz\n", getCpuFrequencyMhz());
