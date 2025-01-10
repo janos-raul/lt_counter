@@ -57,10 +57,13 @@ call background_tasks
 lds temp,flag_reg1
 sbrc temp,key_menuf
 jmp radio_txpower_set
+lds temp,flag_reg1
 sbrc temp,key_exitf
 jmp jdy_no_rx
+lds temp,flag_reg1
 sbrc temp,key_upf
 jmp jdy_up_channel
+lds temp,flag_reg1
 sbrc temp,key_downf
 jmp jdy_down_channel
 jmp radio_channel_loop
@@ -98,10 +101,13 @@ call background_tasks
 lds temp,flag_reg1
 sbrc temp,key_menuf
 jmp radio_save
+lds temp,flag_reg1
 sbrc temp,key_exitf
 jmp jdy_no_rx
+lds temp,flag_reg1
 sbrc temp,key_upf
 jmp jdy_up_tx
+lds temp,flag_reg1
 sbrc temp,key_downf
 jmp jdy_down_tx
 jmp radio_txpower_loop
@@ -254,10 +260,13 @@ call background_tasks
 lds temp,flag_reg1
 sbrc temp,key_menuf
 jmp sm_display_save
+lds temp,flag_reg1
 sbrc temp,key_exitf
 jmp menu_exit
+lds temp,flag_reg1
 sbrc temp,key_upf
 call display_up
+lds temp,flag_reg1
 sbrc temp,key_downf
 call display_dn
 
@@ -372,10 +381,13 @@ call background_tasks
 lds temp,flag_reg1
 sbrc temp,key_menuf
 jmp ppm24menuget2
+lds temp,flag_reg1
 sbrc temp,key_exitf
 jmp menu_exit
+lds temp,flag_reg1
 sbrc temp,key_upf
 call oc_get6_up
+lds temp,flag_reg1
 sbrc temp,key_downf
 call oc_get6_dn
 
@@ -407,6 +419,7 @@ sbrc temp,key_exitf
 jmp menu_exit
 sbrc temp,key_upf
 call oc_get6_up
+lds temp,flag_reg1
 sbrc temp,key_downf
 call oc_get6_dn
 
@@ -438,6 +451,7 @@ sbrc temp,key_exitf
 jmp menu_exit
 sbrc temp,key_upf
 call oc_get6_up
+lds temp,flag_reg1
 sbrc temp,key_downf
 call oc_get6_dn
 
@@ -469,6 +483,7 @@ sbrc temp,key_exitf
 jmp menu_exit
 sbrc temp,key_upf
 call oc_get6_up
+lds temp,flag_reg1
 sbrc temp,key_downf
 call oc_get6_dn
 
@@ -500,6 +515,7 @@ sbrc temp,key_exitf
 jmp menu_exit
 sbrc temp,key_upf
 call oc_get6_up
+lds temp,flag_reg1
 sbrc temp,key_downf
 call oc_get6_dn
 
@@ -531,6 +547,7 @@ sbrc temp,key_exitf
 jmp menu_exit
 sbrc temp,key_upf
 call oc_get6_up
+lds temp,flag_reg1
 sbrc temp,key_downf
 call oc_get6_dn
 
@@ -583,10 +600,13 @@ call background_tasks
 lds temp,flag_reg1
 sbrc temp,key_menuf
 jmp dia100_set
+lds temp,flag_reg1
 sbrc temp,key_exitf
 jmp menu_exit
+lds temp,flag_reg1
 sbrc temp,key_upf
 call dia100_up
+lds temp,flag_reg1
 sbrc temp,key_downf
 call dia100_dn
 jmp dia100_loop
@@ -669,10 +689,13 @@ call background_tasks
 lds temp,flag_reg1
 sbrc temp,key_menuf
 jmp oc1menuget2
+lds temp,flag_reg1
 sbrc temp,key_exitf
 jmp menu_exit
+lds temp,flag_reg1
 sbrc temp,key_upf
 call oc_get6_up
+lds temp,flag_reg1
 sbrc temp,key_downf
 call oc_get6_dn
 
@@ -704,6 +727,7 @@ sbrc temp,key_exitf
 jmp menu_exit
 sbrc temp,key_upf
 call oc_get6_up
+lds temp,flag_reg1
 sbrc temp,key_downf
 call oc_get6_dn
 
@@ -735,6 +759,7 @@ sbrc temp,key_exitf
 jmp menu_exit
 sbrc temp,key_upf
 call oc_get6_up
+lds temp,flag_reg1
 sbrc temp,key_downf
 call oc_get6_dn
 
@@ -766,6 +791,7 @@ sbrc temp,key_exitf
 jmp menu_exit
 sbrc temp,key_upf
 call oc_get6_up
+lds temp,flag_reg1
 sbrc temp,key_downf
 call oc_get6_dn
 
@@ -797,6 +823,7 @@ sbrc temp,key_exitf
 jmp menu_exit
 sbrc temp,key_upf
 call oc_get6_up
+lds temp,flag_reg1
 sbrc temp,key_downf
 call oc_get6_dn
 
@@ -828,6 +855,7 @@ sbrc temp,key_exitf
 jmp menu_exit
 sbrc temp,key_upf
 call oc_get6_up
+lds temp,flag_reg1
 sbrc temp,key_downf
 call oc_get6_dn
 
@@ -895,10 +923,13 @@ call background_tasks
 lds temp,flag_reg1
 sbrc temp,key_menuf
 jmp oc2menuget2
+lds temp,flag_reg1
 sbrc temp,key_exitf
 jmp menu_exit
+lds temp,flag_reg1
 sbrc temp,key_upf
 call oc_get6_up
+lds temp,flag_reg1
 sbrc temp,key_downf
 call oc_get6_dn
 
@@ -930,6 +961,7 @@ sbrc temp,key_exitf
 jmp menu_exit
 sbrc temp,key_upf
 call oc_get6_up
+lds temp,flag_reg1
 sbrc temp,key_downf
 call oc_get6_dn
 
@@ -961,6 +993,7 @@ sbrc temp,key_exitf
 jmp menu_exit
 sbrc temp,key_upf
 call oc_get6_up
+lds temp,flag_reg1
 sbrc temp,key_downf
 call oc_get6_dn
 
@@ -992,6 +1025,7 @@ sbrc temp,key_exitf
 jmp menu_exit
 sbrc temp,key_upf
 call oc_get6_up
+lds temp,flag_reg1
 sbrc temp,key_downf
 call oc_get6_dn
 
@@ -1023,6 +1057,7 @@ sbrc temp,key_exitf
 jmp menu_exit
 sbrc temp,key_upf
 call oc_get6_up
+lds temp,flag_reg1
 sbrc temp,key_downf
 call oc_get6_dn
 
@@ -1054,6 +1089,7 @@ sbrc temp,key_exitf
 jmp menu_exit
 sbrc temp,key_upf
 call oc_get6_up
+lds temp,flag_reg1
 sbrc temp,key_downf
 call oc_get6_dn
 
@@ -1269,14 +1305,3 @@ jmp menu_exit
 sbrc temp,key_downf
 jmp menu_exit
 jmp dev_inf_loop
-
-
-;*****************************************
-;jmp trap
-;*****************************************
-sub_menu_exit:
-;***********
-call key_clr
-call lcd_nbnk
-call lcd_clr
-jmp pre_main
