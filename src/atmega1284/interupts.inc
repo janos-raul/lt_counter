@@ -69,11 +69,11 @@ lds yl,ppm24
 lds yh,ppm24+1
 lds temp2,ppm24+2
 
-cp temp2,temp3
+cp yl,xl
 brne no_met
 cpc yh,xh
 brne no_met
-cpc yl,xl
+cpc temp2,temp3
 brne no_met
 clr temp
 sts enc_cnt,temp
