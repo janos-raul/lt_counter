@@ -54,10 +54,6 @@ push xh
 push yl
 push yh
 
-lds yl,ppm24
-lds yh,ppm24+1
-lds temp2,ppm24+2
-
 clr temp2            ; Clear temp2 register (set to 0)
 lds xl, enc_cnt      ; Load LSB from enc_cnt into xl
 lds xh, enc_cnt+1    ; Load middle byte from enc_cnt+1 into xh
@@ -69,11 +65,15 @@ sts enc_cnt,xl
 sts enc_cnt+1,xh
 sts enc_cnt+2,temp3
 
+lds yl,ppm24
+lds yh,ppm24+1
+lds temp2,ppm24+2
+
 cp temp2,temp3
 brne no_met
-cp yh,xh
+cpc yh,xh
 brne no_met
-cp yl,xl
+cpc yl,xl
 brne no_met
 clr temp
 sts enc_cnt,temp
