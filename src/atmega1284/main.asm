@@ -1395,11 +1395,11 @@ lds temp3,met_cnt+2
 lds temp4,oc1_val
 lds temp5,oc1_val+1
 lds temp6,oc1_val+2
-cp temp3,temp6
+cp temp4,temp
 brne no_out0
 cpc temp5,temp2
 brne no_out0
-cpc temp4,temp
+cpc temp6,temp3
 brne no_out0
 clr temp
 sts met_cnt,temp
@@ -1417,11 +1417,11 @@ lds temp3,met_cnt+2
 lds temp4,oc2_val
 lds temp5,oc2_val+1
 lds temp6,oc2_val+2
-cp temp3,temp6
+cp temp4,temp
 brne no_out1
 cpc temp5,temp2
 brne no_out1
-cpc temp4,temp
+cpc temp6,temp3
 brne no_out1
 clr temp
 sts met_cnt,temp
