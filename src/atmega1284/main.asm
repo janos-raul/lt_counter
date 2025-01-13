@@ -1397,9 +1397,9 @@ lds temp5,oc1_val+1
 lds temp6,oc1_val+2
 cp temp3,temp6
 brne no_out0
-cp temp5,temp2
+cpc temp5,temp2
 brne no_out0
-cp temp4,temp
+cpc temp4,temp
 brne no_out0
 clr temp
 sts met_cnt,temp
@@ -1419,9 +1419,9 @@ lds temp5,oc2_val+1
 lds temp6,oc2_val+2
 cp temp3,temp6
 brne no_out1
-cp temp5,temp2
+cpc temp5,temp2
 brne no_out1
-cp temp4,temp
+cpc temp4,temp
 brne no_out1
 clr temp
 sts met_cnt,temp
