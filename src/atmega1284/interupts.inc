@@ -54,6 +54,8 @@ push xh
 push yl
 push yh
 
+cbi portd,led_green
+
 clr temp2            ; Clear temp2 register (set to 0)
 lds xl, enc_cnt      ; Load LSB from enc_cnt into xl
 lds xh, enc_cnt+1    ; Load middle byte from enc_cnt+1 into xh
@@ -145,7 +147,6 @@ sbr temp,0x42	;refresh adc_calc 400ms & refresh scr_rotate
 sts flag_reg2,temp
 clr temp
 sts cnt2,temp
-cbi portd,led_green
 ovf2_exit1:
 lds temp,flag_reg1
 sbrs temp,key_debounce
