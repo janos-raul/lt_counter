@@ -63,7 +63,7 @@ met_sram:	.byte 7
 time_sram:	.byte 9
 date_sram:	.byte 6
 speed_sram: 	.byte 4
-type_sram:  	.byte 12 ;"MYUP-2x0.75",0x00
+type_sram:  	.byte 13 ;"H07RNF-5x2.5",0x00
 type_index: 	.byte 1
 color_sram: 	.byte 8  ;"Y/GREEN",0x00
 color_index:	.byte 1
