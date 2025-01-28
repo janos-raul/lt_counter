@@ -6,11 +6,13 @@
  */
 
 color_dsp:
+call ld_sram
 ldi temp,33
 call lcd_gotoxy_80
 call 	Lcd_ram_msg_put
 ret
 type_dsp:
+call ld_sram
 ldi temp,20
 call lcd_gotoxy_80
 call 	Lcd_ram_msg_put
@@ -27,7 +29,7 @@ ldi xl,low(type_sram)
 movw y,x
 lds temp,type_index
 inc temp
-cpi temp,58
+cpi temp,78
 brne type_index_ok
 clr temp
 type_index_ok:
@@ -264,356 +266,400 @@ cpi temp,57
 brne type_index57
 jmp type_index57handler
 type_index57:
+cpi temp,58
+brne type_index58
+jmp type_index58handler
+type_index58:
+cpi temp,59
+brne type_index59
+jmp type_index59handler
+type_index59:
+cpi temp,60
+brne type_index60
+jmp type_index60handler
+type_index60:
+cpi temp,61
+brne type_index61
+jmp type_index61handler
+type_index61:
+cpi temp,62
+brne type_index62
+jmp type_index62handler
+type_index62:
+cpi temp,63
+brne type_index63
+jmp type_index63handler
+type_index63:
+cpi temp,64
+brne type_index64
+jmp type_index64handler
+type_index64:
+cpi temp,65
+brne type_index65
+jmp type_index65handler
+type_index65:
+cpi temp,66
+brne type_index66
+jmp type_index66handler
+type_index66:
+cpi temp,67
+brne type_index67
+jmp type_index67handler
+type_index67:
+cpi temp,68
+brne type_index68
+jmp type_index68handler
+type_index68:
+cpi temp,69
+brne type_index69
+jmp type_index69handler
+type_index69:
+cpi temp,70
+brne type_index70
+jmp type_index70handler
+type_index70:
+cpi temp,71
+brne type_index71
+jmp type_index71handler
+type_index71:
+cpi temp,72
+brne type_index72
+jmp type_index72handler
+type_index72:
+cpi temp,73
+brne type_index73
+jmp type_index73handler
+type_index73:
+cpi temp,74
+brne type_index74
+jmp type_index74handler
+type_index74:
+cpi temp,75
+brne type_index75
+jmp type_index75handler
+type_index75:
+cpi temp,76
+brne type_index76
+jmp type_index76handler
+type_index76:
+cpi temp,77
+brne type_index77
+jmp type_index77handler
+type_index77:
 ret
 
 type_index0handler:
 ldi zh,high(table_fy05*2)
 ldi zl,low(table_fy05*2)
-call ld_sram
-call type_dsp
-ret
+jmp type_dsp
 type_index1handler:
 ldi zh,high(table_fy1*2)
 ldi zl,low(table_fy1*2)
-call ld_sram
-call type_dsp
-ret
+jmp type_dsp
 type_index2handler:
 ldi zh,high(table_fy15*2)
 ldi zl,low(table_fy15*2)
-call ld_sram
-call type_dsp
-ret
+jmp type_dsp
 type_index3handler:
 ldi zh,high(table_fy25*2)
 ldi zl,low(table_fy25*2)
-call ld_sram
-call type_dsp
-ret
+jmp type_dsp
 type_index4handler:
 ldi zh,high(table_fy4*2)
 ldi zl,low(table_fy4*2)
-call ld_sram
-call type_dsp
-ret
+jmp type_dsp
 type_index5handler:
 ldi zh,high(table_fy6*2)
 ldi zl,low(table_fy6*2)
-call ld_sram
-call type_dsp
-ret
+jmp type_dsp
 type_index6handler:
 ldi zh,high(table_fy10*2)
 ldi zl,low(table_fy10*2)
-call ld_sram
-call type_dsp
-ret
+jmp type_dsp
 type_index7handler:
 ldi zh,high(table_fy16*2)
 ldi zl,low(table_fy16*2)
-call ld_sram
-call type_dsp
-ret
+jmp type_dsp
 type_index8handler:
 ldi zh,high(table_myf05*2)
 ldi zl,low(table_myf05*2)
-call ld_sram
-call type_dsp
-ret
+jmp type_dsp
 type_index9handler:
 ldi zh,high(table_myf75*2)
 ldi zl,low(table_myf75*2)
-call ld_sram
-call type_dsp
-ret
+jmp type_dsp
 type_index10handler:
 ldi zh,high(table_myf1*2)
 ldi zl,low(table_myf1*2)
-call ld_sram
-call type_dsp
-ret
+jmp type_dsp
 type_index11handler:
 ldi zh,high(table_myf15*2)
 ldi zl,low(table_myf15*2)
-call ld_sram
-call type_dsp
-ret
+jmp type_dsp
 type_index12handler:
 ldi zh,high(table_myf25*2)
 ldi zl,low(table_myf25*2)
-call ld_sram
-call type_dsp
-ret
+jmp type_dsp
 type_index13handler:
 ldi zh,high(table_myf4*2)
 ldi zl,low(table_myf4*2)
-call ld_sram
-call type_dsp
-ret
+jmp type_dsp
 type_index14handler:
 ldi zh,high(table_myf6*2)
 ldi zl,low(table_myf6*2)
-call ld_sram
-call type_dsp
-ret
+jmp type_dsp
 type_index15handler:
 ldi zh,high(table_myf10*2)
 ldi zl,low(table_myf10*2)
-call ld_sram
-call type_dsp
-ret
+jmp type_dsp
 type_index16handler:
 ldi zh,high(table_myf16*2)
 ldi zl,low(table_myf16*2)
-call ld_sram
-call type_dsp
-ret
+jmp type_dsp
 type_index17handler:
 ldi zh,high(table_cyf2x15*2)
 ldi zl,low(table_cyf2x15*2)
-call ld_sram
-call type_dsp
-ret
+jmp type_dsp
 type_index18handler:
 ldi zh,high(table_cyf3x15*2)
 ldi zl,low(table_cyf3x15*2)
-call ld_sram
-call type_dsp
-ret
+jmp type_dsp
 type_index19handler:
 ldi zh,high(table_cyf4x15*2)
 ldi zl,low(table_cyf4x15*2)
-call ld_sram
-call type_dsp
-ret
+jmp type_dsp
 type_index20handler:
 ldi zh,high(table_cyf5x15*2)
 ldi zl,low(table_cyf5x15*2)
-call ld_sram
-call type_dsp
-ret
+jmp type_dsp
 type_index21handler:
 ldi zh,high(table_cyf2x25*2)
 ldi zl,low(table_cyf2x25*2)
-call ld_sram
-call type_dsp
-ret
+jmp type_dsp
 type_index22handler:
 ldi zh,high(table_cyf3x25*2)
 ldi zl,low(table_cyf3x25*2)
-call ld_sram
-call type_dsp
-ret
+jmp type_dsp
 type_index23handler:
 ldi zh,high(table_cyf4x25*2)
 ldi zl,low(table_cyf4x25*2)
-call ld_sram
-call type_dsp
-ret
+jmp type_dsp
 type_index24handler:
 ldi zh,high(table_cyf5x25*2)
 ldi zl,low(table_cyf5x25*2)
-call ld_sram
-call type_dsp
-ret
+jmp type_dsp
 type_index25handler:
+ldi zh,high(table_mym2x05*2)
+ldi zl,low(table_mym2x05*2)
+jmp type_dsp
+type_index26handler:
+ldi zh,high(table_mym3x05*2)
+ldi zl,low(table_mym3x05*2)
+jmp type_dsp
+type_index27handler:
+ldi zh,high(table_mym4x05*2)
+ldi zl,low(table_mym4x05*2)
+jmp type_dsp
+type_index28handler:
+ldi zh,high(table_mym5x05*2)
+ldi zl,low(table_mym5x05*2)
+jmp type_dsp
+type_index29handler:
+ldi zh,high(table_mym2x075*2)
+ldi zl,low(table_mym2x075*2)
+jmp type_dsp
+type_index30handler:
+ldi zh,high(table_mym3x075*2)
+ldi zl,low(table_mym3x075*2)
+jmp type_dsp
+type_index31handler:
+ldi zh,high(table_mym4x075*2)
+ldi zl,low(table_mym4x075*2)
+jmp type_dsp
+type_index32handler:
+ldi zh,high(table_mym5x075*2)
+ldi zl,low(table_mym5x075*2)
+jmp type_dsp
+type_index33handler:
+ldi zh,high(table_mym2x1*2)
+ldi zl,low(table_mym2x1*2)
+jmp type_dsp
+type_index34handler:
+ldi zh,high(table_mym3x1*2)
+ldi zl,low(table_mym3x1*2)
+jmp type_dsp
+type_index35handler:
+ldi zh,high(table_mym4x1*2)
+ldi zl,low(table_mym4x1*2)
+jmp type_dsp
+type_index36handler:
+ldi zh,high(table_mym5x1*2)
+ldi zl,low(table_mym5x1*2)
+jmp type_dsp
+type_index37handler:
 ldi zh,high(table_mym2x15*2)
 ldi zl,low(table_mym2x15*2)
-call ld_sram
-call type_dsp
-ret
-type_index26handler:
+jmp type_dsp
+type_index38handler:
 ldi zh,high(table_mym3x15*2)
 ldi zl,low(table_mym3x15*2)
-call ld_sram
-call type_dsp
-ret
-type_index27handler:
+jmp type_dsp
+type_index39handler:
 ldi zh,high(table_mym4x15*2)
 ldi zl,low(table_mym4x15*2)
-call ld_sram
-call type_dsp
-ret
-type_index28handler:
+jmp type_dsp
+type_index40handler:
 ldi zh,high(table_mym5x15*2)
 ldi zl,low(table_mym5x15*2)
-call ld_sram
-call type_dsp
-ret
-type_index29handler:
+jmp type_dsp
+type_index41handler:
 ldi zh,high(table_mym2x25*2)
 ldi zl,low(table_mym2x25*2)
-call ld_sram
-call type_dsp
-ret
-type_index30handler:
+jmp type_dsp
+type_index42handler:
 ldi zh,high(table_mym3x25*2)
 ldi zl,low(table_mym3x25*2)
-call ld_sram
-call type_dsp
-ret
-type_index31handler:
+jmp type_dsp
+type_index43handler:
 ldi zh,high(table_mym4x25*2)
 ldi zl,low(table_mym4x25*2)
-call ld_sram
-call type_dsp
-ret
-type_index32handler:
+jmp type_dsp
+type_index44handler:
 ldi zh,high(table_mym5x25*2)
 ldi zl,low(table_mym5x25*2)
-call ld_sram
-call type_dsp
-ret
-type_index33handler:
+jmp type_dsp
+type_index45handler:
+ldi zh,high(table_h072x15*2)
+ldi zl,low(table_h072x15*2)
+jmp type_dsp
+type_index46handler:
+ldi zh,high(table_h073x15*2)
+ldi zl,low(table_h073x15*2)
+jmp type_dsp
+type_index47handler:
+ldi zh,high(table_h074x15*2)
+ldi zl,low(table_h074x15*2)
+jmp type_dsp
+type_index48handler:
+ldi zh,high(table_h075x15*2)
+ldi zl,low(table_h075x15*2)
+jmp type_dsp
+type_index49handler:
+ldi zh,high(table_h072x25*2)
+ldi zl,low(table_h072x25*2)
+jmp type_dsp
+type_index50handler:
+ldi zh,high(table_h073x25*2)
+ldi zl,low(table_h073x25*2)
+jmp type_dsp
+type_index51handler:
+ldi zh,high(table_h074x25*2)
+ldi zl,low(table_h074x25*2)
+jmp type_dsp
+type_index52handler:
+ldi zh,high(table_h075x25*2)
+ldi zl,low(table_h075x25*2)
+jmp type_dsp
+type_index53handler:
 ldi zh,high(table_rvk2x15*2)
 ldi zl,low(table_rvk2x15*2)
-call ld_sram
-call type_dsp
-ret
-type_index34handler:
+jmp type_dsp
+type_index54handler:
 ldi zh,high(table_rvk3x15*2)
 ldi zl,low(table_rvk3x15*2)
-call ld_sram
-call type_dsp
-ret
-type_index35handler:
+jmp type_dsp
+type_index55handler:
 ldi zh,high(table_rvk4x15*2)
 ldi zl,low(table_rvk4x15*2)
-call ld_sram
-call type_dsp
-ret
-type_index36handler:
+jmp type_dsp
+type_index56handler:
 ldi zh,high(table_rvk5x15*2)
 ldi zl,low(table_rvk5x15*2)
-call ld_sram
-call type_dsp
-ret
-type_index37handler:
+jmp type_dsp
+type_index57handler:
 ldi zh,high(table_rvk2x25*2)
 ldi zl,low(table_rvk2x25*2)
-call ld_sram
-call type_dsp
-ret
-type_index38handler:
+jmp type_dsp
+type_index58handler:
 ldi zh,high(table_rvk3x25*2)
 ldi zl,low(table_rvk3x25*2)
-call ld_sram
-call type_dsp
-ret
-type_index39handler:
+jmp type_dsp
+type_index59handler:
 ldi zh,high(table_rvk4x25*2)
 ldi zl,low(table_rvk4x25*2)
-call ld_sram
-call type_dsp
-ret
-type_index40handler:
+jmp type_dsp
+type_index60handler:
 ldi zh,high(table_rvk5x25*2)
 ldi zl,low(table_rvk5x25*2)
-call ld_sram
-call type_dsp
-ret
-type_index41handler:
+jmp type_dsp
+type_index61handler:
 ldi zh,high(table_nym2x15*2)
 ldi zl,low(table_nym2x15*2)
-call ld_sram
-call type_dsp
-ret
-type_index42handler:
+jmp type_dsp
+type_index62handler:
 ldi zh,high(table_nym3x15*2)
 ldi zl,low(table_nym3x15*2)
-call ld_sram
-call type_dsp
-ret
-type_index43handler:
+jmp type_dsp
+type_index63handler:
 ldi zh,high(table_nym4x15*2)
 ldi zl,low(table_nym4x15*2)
-call ld_sram
-call type_dsp
-ret
-type_index44handler:
+jmp type_dsp
+type_index64handler:
 ldi zh,high(table_nym5x15*2)
 ldi zl,low(table_nym5x15*2)
-call ld_sram
-call type_dsp
-ret
-type_index45handler:
+jmp type_dsp
+type_index65handler:
 ldi zh,high(table_nym2x25*2)
 ldi zl,low(table_nym2x25*2)
-call ld_sram
-call type_dsp
-ret
-type_index46handler:
+jmp type_dsp
+type_index66handler:
 ldi zh,high(table_nym3x25*2)
 ldi zl,low(table_nym3x25*2)
-call ld_sram
-call type_dsp
-ret
-type_index47handler:
+jmp type_dsp
+type_index67handler:
 ldi zh,high(table_nym4x25*2)
 ldi zl,low(table_nym4x25*2)
-call ld_sram
-call type_dsp
-ret
-type_index48handler:
+jmp type_dsp
+type_index68handler:
 ldi zh,high(table_nym5x25*2)
 ldi zl,low(table_nym5x25*2)
-call ld_sram
-call type_dsp
-ret
-type_index49handler:
+jmp type_dsp
+type_index69handler:
 ldi zh,high(table_myup2x05*2)
 ldi zl,low(table_myup2x05*2)
-call ld_sram
-call type_dsp
-ret
-type_index50handler:
+jmp type_dsp
+type_index70handler:
 ldi zh,high(table_myup2x075*2)
 ldi zl,low(table_myup2x075*2)
-call ld_sram
-call type_dsp
-ret
-type_index51handler:
+jmp type_dsp
+type_index71handler:
 ldi zh,high(table_myup2x1*2)
 ldi zl,low(table_myup2x1*2)
-call ld_sram
-call type_dsp
-ret
-type_index52handler:
+jmp type_dsp
+type_index72handler:
 ldi zh,high(table_myup2x15*2)
 ldi zl,low(table_myup2x15*2)
-call ld_sram
-call type_dsp
-ret
-type_index53handler:
+jmp type_dsp
+type_index73handler:
 ldi zh,high(table_myup2x25*2)
 ldi zl,low(table_myup2x25*2)
-call ld_sram
-call type_dsp
-ret
-type_index54handler:
+jmp type_dsp
+type_index74handler:
 ldi zh,high(table_cu15*2)
 ldi zl,low(table_cu15*2)
-call ld_sram
-call type_dsp
-ret
-type_index55handler:
+jmp type_dsp
+type_index75handler:
 ldi zh,high(table_cu25*2)
 ldi zl,low(table_cu25*2)
-call ld_sram
-call type_dsp
-ret
-type_index56handler:
+jmp type_dsp
+type_index76handler:
 ldi zh,high(table_ce15*2)
 ldi zl,low(table_ce15*2)
-call ld_sram
-call type_dsp
-ret
-type_index57handler:
+jmp type_dsp
+type_index77handler:
 ldi zh,high(table_ce25*2)
 ldi zl,low(table_ce25*2)
-call ld_sram
-call type_dsp
-ret
+jmp type_dsp
 ;************************************ color scan
 color_scan:
 lds temp,flag_reg1
@@ -626,7 +672,7 @@ ldi xl,low(color_sram)
 movw y,x
 lds temp,color_index
 inc temp
-cpi temp,8
+cpi temp,9
 brne color_index_ok
 clr temp
 color_index_ok:
@@ -647,6 +693,8 @@ cpi temp,6
 breq color_index6
 cpi temp,7
 breq color_index7
+cpi temp,8
+breq color_index8
 ret
 color_index0:
 jmp color_index0handler
@@ -664,52 +712,42 @@ color_index6:
 jmp color_index6handler
 color_index7:
 jmp color_index7handler
+color_index8:
+jmp color_index8handler
 
 color_index0handler:
 ldi zh,high(table_red*2)
 ldi zl,low(table_red*2)
-call ld_sram
-call color_dsp
-ret
+jmp color_dsp
 color_index1handler:
 ldi zh,high(table_blue*2)
 ldi zl,low(table_blue*2)
-call ld_sram
-call color_dsp
-ret
+jmp color_dsp
 color_index2handler:
 ldi zh,high(table_brown*2)
 ldi zl,low(table_brown*2)
-call ld_sram
-call color_dsp
-ret
+jmp color_dsp
 color_index3handler:
 ldi zh,high(table_black*2)
 ldi zl,low(table_black*2)
-call ld_sram
-call color_dsp
-ret
+jmp color_dsp
 color_index4handler:
 ldi zh,high(table_grey*2)
 ldi zl,low(table_grey*2)
-call ld_sram
-call color_dsp
-ret
+jmp color_dsp
 color_index5handler:
 ldi zh,high(table_yg*2)
 ldi zl,low(table_yg*2)
-call ld_sram
-call color_dsp
-ret
+jmp color_dsp
 color_index6handler:
 ldi zh,high(table_white*2)
 ldi zl,low(table_white*2)
-call ld_sram
-call color_dsp
-ret
+jmp color_dsp
 color_index7handler:
 ldi zh,high(table_orange*2)
 ldi zl,low(table_orange*2)
-call ld_sram
-call color_dsp
-ret
+jmp color_dsp
+color_index8handler:
+ldi zh,high(table_none*2)
+ldi zl,low(table_none*2)
+jmp color_dsp
