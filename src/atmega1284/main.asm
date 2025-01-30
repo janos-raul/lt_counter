@@ -813,10 +813,14 @@ call format_scr
 call met_scr
 ldi yh,high(type_sram)
 ldi yl,low(type_sram)
-call type_dsp
+ldi temp,20
+call lcd_gotoxy_80
+call 	Lcd_ram_msg_put
 ldi yh,high(color_sram)
 ldi yl,low(color_sram)
-call color_dsp
+ldi temp,33
+call lcd_gotoxy_80
+call 	Lcd_ram_msg_put
 jmp main_loop
 
 background_tasks:
