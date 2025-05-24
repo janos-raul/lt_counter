@@ -7,9 +7,10 @@
 ;***************************** key int
 int1_isr:
 push temp
-push temp2
 in temp,sreg
 push temp
+push temp2
+
 ldi temp,0b00000001 ; disable key_int
 out eimsk,temp
 lds temp,flag_reg1
@@ -36,6 +37,7 @@ sbi portd,buz_
 lds temp,flag_reg2
 sbr temp,0x04	;buz_key
 sts flag_reg2,temp
+
 pop temp2
 pop temp
 out sreg,temp
