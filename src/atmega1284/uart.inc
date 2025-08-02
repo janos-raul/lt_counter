@@ -4,6 +4,7 @@
  *  Created: 12/5/2024 9:09:28 AM
  *   Author: janos
  */ 
+
 tx0_send_buf:
 ldi yh,high(tx0_buffer)
 ldi yl,low(tx0_buffer)
@@ -20,6 +21,7 @@ txc1_busy:
 lds temp,flag_reg2
 ;sbrs temp,txc1_bufc
 jmp txc1_busy
+clr temp
 txc1_busyc:
 lds temp,flag_reg2
 ;sbrs temp,txc1_done
@@ -39,3 +41,4 @@ cpi temp,0xff
 brne tx0_loop
 call tx0_send_buf
 */
+
